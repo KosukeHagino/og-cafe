@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/top.css">
+    <link rel="icon" href="./img/logo/favicon.svg" type="image/svg"> <!-- ファビコンは後で作成 -->
+    <script src="./js/script.js" defer></script>
+    <title>OG cafe | 自家焙煎珈琲の店</title>
+</head>
+
+<body class="l-body">
+    <header class="l-header">
+        <h1 class="l-header__logo">
+            <a class="l-header__logo-link" href="./index.html">OG cafe</a>
+        </h1>
+        <p class="l-header__order">オンラインストアは
+            <a class="l-header__order-link" href="#">こちら</a>
+        </p>
+
+        <ul class="l-header__icon-list">
+            <li class="l-header__icon-item">
+                <a class="l-header__icon-link" href="#">
+                    <img class="l-header__icon-img" src="./img/" alt="エックスへ移動">
+                </a>
+            </li>
+            <li class="l-header__icon-item">
+                <a class="l-header__icon-link" href="#">
+                    <img class="l-header__icon-img" src="./img/" alt="インスタグラムへ移動">
+                </a>
+            </li>
+            <li class="l-header__icon-item">
+                <a class="l-header__icon-link" href="#">
+                    <img class="l-header__icon-img" src="./img/" alt="カートへ移動">
+                </a>
+            </li>
+            <li class="l-header__icon-item">
+                <button type="button" id="js-hamburger" class="l-header__hamburger c-hamburger" aria-controls="js-header-nav" aria-expanded="false">
+                    <span class="c-hamburger__line"></span>
+                    <span class="c-hamburger__line"></span>
+                    <span class="c-hamburger__line"></span>
+                </button>
+            </li>
+        </ul>
+    </header>
+
+    <nav id="js-header-nav" class="l-header__nav">
+        <ul class="l-header__nav-list">
+            <li class="l-header__nav-item"><a class="l-header__nav-link" href="./index.html">home</a></li>
+            <li class="l-header__nav-item"><a class="l-header__nav-link" href="#">about</a></li>
+            <li class="l-header__nav-item"><a class="l-header__nav-link" href="#">category</a></li>
+            <li class="l-header__nav-item"><a class="l-header__nav-link" href="#">contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="l-main">
+        <div class="p-fv">
+            <div class="p-fv__img">
+                <div class="p-fv__img--1"></div>
+                <div class="p-fv__img--2"></div>
+                <div class="p-fv__img--3"></div>
+                <div class="p-fv__img--4"></div>
+                <div class="p-fv__img--5"></div>
+            </div>
+            <p class="p-fv__catch">五感で味わう、上質な一杯。</p>
+            <div class="p-fv__scroll">
+                <p class="p-fv__scroll-text">scroll</p>
+            </div>
+        </div>
+
+        <section class="p-about l-section">
+            <h2 class="l-section__title">
+                <span class="l-section__title-en">about</span>
+                <span class="l-section__title-jp">OG cafeについて</span>
+            </h2>
+
+            <div class="p-about__content">
+                <img class="p-about__img" src="./img/" alt="店内風景">
+                <div class="p-about__body">
+                    <p class="p-about__text">ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。</p>
+                    <button type="button" class="p-about__view-btn c-btn__view" onclick="location.href='#'">VIEW MORE</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-commitment l-section">
+            <h2 class="l-section__title">
+                <span class="l-section__title-en">commitment</span>
+                <span class="l-section__title-jp">こだわり</span>
+            </h2>
+
+            <div class="p-commitment__content">
+                <div class="p-commitment__body">
+                    <h3 class="p-commitment__subtitle">
+                        <span class="p-commitment__subtitle-num">こだわりその１、</span>
+                        <span class="p-commitment__subtitle-text">厳選した珈琲豆であること。</span>
+                    </h3>
+                    <p class="p-commitment__text">こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。</p>
+                </div>
+                <img class="p-commitment__img" src="./img/" alt="店内風景の写真">
+            </div>
+
+            <div class="p-commitment__content">
+                <div class="p-commitment__body">
+                    <h3 class="p-commitment__subtitle">
+                        <span class="p-commitment__subtitle-num">こだわりその２、</span>
+                        <span class="p-commitment__subtitle-text">最適な焙煎をすること。</span>
+                    </h3>
+                    <p class="p-commitment__text">こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。</p>
+                </div>
+                <img class="p-commitment__img" src="./img/" alt="焙煎の様子の写真">
+            </div>
+
+            <div class="p-commitment__content">
+                <div class="p-commitment__body">
+                    <h3 class="p-commitment__subtitle">
+                        <span class="p-commitment__subtitle-num">こだわりその３、</span>
+                        <span class="p-commitment__subtitle-text">新鮮であること。</span>
+                    </h3>
+                    <p class="p-commitment__text">こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。</p>
+                </div>
+                <img class="p-commitment__img" src="./img/" alt="ラテアートの写真">
+            </div>
+        </section>
+
+        <section class="p-category l-section">
+            <h2 class="l-section__title">
+                <span class="l-section__title-en">category</span>
+                <span class="l-section__title-jp">商品カテゴリ</span>
+            </h2>
+
+            <ul class="p-category__list">
+                <li class="p-category__item">
+                    <a class="p-category__link" href="#">
+                        <img class="p-category__img" src="./img/" alt="コーヒー一覧へ移動">
+                        <p class="p-category__name">
+                            <span class="p-category__name-en">brew coffee</span>
+                            <span class="p-category__name-jp">コーヒー</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="p-category__item">
+                    <a class="p-category__link" href="#">
+                        <img class="p-category__img" src="./img/" alt="エスプレッソ一覧へ移動">
+                        <p class="p-category__name">
+                            <span class="p-category__name-en">espresso</span>
+                            <span class="p-category__name-jp">エスプレッソ</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="p-category__item">
+                    <a class="p-category__link" href="#">
+                        <img class="p-category__img" src="./img/" alt="フラペチーノ一覧へ移動">
+                        <p class="p-category__name">
+                            <span class="p-category__name-en">frappuccino</span>
+                            <span class="p-category__name-jp">フラペチーノ</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="p-category__item">
+                    <a class="p-category__link" href="#">
+                        <img class="p-category__img" src="./img/" alt="ティー一覧へ移動">
+                        <p class="p-category__name">
+                            <span class="p-category__name-en">tea</span>
+                            <span class="p-category__name-jp">ティー</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="p-category__item">
+                    <a class="p-category__link" href="#">
+                        <img class="p-category__img" src="./img/" alt="フード一覧へ移動">
+                        <p class="p-category__name">
+                            <span class="p-category__name-en">food</span>
+                            <span class="p-category__name-jp">フード</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="p-category__item">
+                    <a class="p-category__link" href="#">
+                        <img class="p-category__img" src="./img/" alt="コーヒー豆一覧へ移動">
+                        <p class="p-category__name">
+                            <span class="p-category__name-en">coffee beans</span>
+                            <span class="p-category__name-jp">コーヒー豆</span>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="l-footer">
+        <p class="l-footer__logo">
+            <a class="l-footer__logo-link" href="./index.html">OG cafe</a>
+        </p>
+        <ul class="l-footer__list">
+            <li class="l-footer__item"><a class="l-footer__link" href="#">プライバシーポリシー</a></li>
+            <li class="l-footer__item"><a class="l-footer__link" href="#">特定商法取引に基づく表記</a></li>
+        </ul>
+        <small class="l-footer__copy-wrapper">
+            <span class="l-footer__copyright">&copy; 2026 OG cafe</span>
+            <a class="l-footer__github-link" href="https://github.com/KosukeHagino/og-cafe" target="_blank">GitHub</a>
+        </small>
+    </footer>
+
+    <button type="button" class="l-pagetop">∧top</button>
+</body>
+</html>
