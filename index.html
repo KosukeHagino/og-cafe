@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="./css/normalize.css">
+
+    <!-- Adobe Fontsの指定 -->
+    <script>
+        (function(d) {
+            var config = {
+            kitId: 'tbs1thr',
+            scriptTimeout: 3000,
+            async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+    </script> <!-- Adobe Fontsの指定 end -->
+
     <link rel="stylesheet" href="./css/top.css">
     <link rel="icon" href="./img/logo/favicon.svg" type="image/svg"> <!-- ファビコンは後で作成 -->
-    <script src="./js/script.js" defer></script>
+    <script src="./js/jquery-4.0.0.min.js"></script>
+    <script src="./js/top.js" defer></script>
     <title>OG cafe | 自家焙煎珈琲の店</title>
 </head>
 
@@ -15,31 +29,29 @@
         <h1 class="l-header__logo">
             <a class="l-header__logo-link" href="./index.html">OG cafe</a>
         </h1>
-        <p class="l-header__order">オンラインストアは
-            <a class="l-header__order-link" href="#">こちら</a>
-        </p>
+        <p class="l-header__order">オンラインストアは<a class="l-header__order-link" href="#">こちら</a></p>
 
         <ul class="l-header__icon-list">
             <li class="l-header__icon-item">
                 <a class="l-header__icon-link" href="#">
-                    <img class="l-header__icon-img" src="./img/" alt="エックスへ移動">
+                    <img class="l-header__icon-img" src="./img/logo/x-logo.svg" alt="エックスへ移動">
                 </a>
             </li>
             <li class="l-header__icon-item">
                 <a class="l-header__icon-link" href="#">
-                    <img class="l-header__icon-img" src="./img/" alt="インスタグラムへ移動">
+                    <img class="l-header__icon-img" src="./img/logo/instagram-logo.svg" alt="インスタグラムへ移動">
                 </a>
             </li>
             <li class="l-header__icon-item">
                 <a class="l-header__icon-link" href="#">
-                    <img class="l-header__icon-img" src="./img/" alt="カートへ移動">
+                    <img class="l-header__icon-img" src="./img/logo/cart-logo.svg" alt="カートへ移動">
                 </a>
             </li>
             <li class="l-header__icon-item">
-                <button type="button" id="js-hamburger" class="l-header__hamburger c-hamburger" aria-controls="js-header-nav" aria-expanded="false">
-                    <span class="c-hamburger__line"></span>
-                    <span class="c-hamburger__line"></span>
-                    <span class="c-hamburger__line"></span>
+                <button type="button" id="js-hamburger" class="l-header__hamburger" aria-controls="js-header-nav" aria-expanded="false">
+                    <span class="l-header__hamburger-line"></span>
+                    <span class="l-header__hamburger-line"></span>
+                    <span class="l-header__hamburger-line"></span>
                 </button>
             </li>
         </ul>
@@ -56,17 +68,15 @@
 
     <main class="l-main">
         <div class="p-fv">
-            <div class="p-fv__img">
-                <div class="p-fv__img--1"></div>
-                <div class="p-fv__img--2"></div>
-                <div class="p-fv__img--3"></div>
-                <div class="p-fv__img--4"></div>
-                <div class="p-fv__img--5"></div>
-            </div>
+            <ul class="p-fv__img-list">
+                <li class="p-fv__img--1 p-fv__img-item"></li>
+                <li class="p-fv__img--2 p-fv__img-item"></li>
+                <li class="p-fv__img--3 p-fv__img-item"></li>
+                <li class="p-fv__img--4 p-fv__img-item"></li>
+                <li class="p-fv__img--5 p-fv__img-item"></li>
+            </ul>
             <p class="p-fv__catch">五感で味わう、上質な一杯。</p>
-            <div class="p-fv__scroll">
-                <p class="p-fv__scroll-text">scroll</p>
-            </div>
+            <div class="p-fv__scroll"></div>
         </div>
 
         <section class="p-about l-section">
@@ -76,10 +86,17 @@
             </h2>
 
             <div class="p-about__content">
-                <img class="p-about__img" src="./img/" alt="店内風景">
+                <img class="p-about__img" src="./img/photo/cafe.jpg" alt="店内風景">
                 <div class="p-about__body">
-                    <p class="p-about__text">ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。ここはお店の説明文が入ります。</p>
-                    <button type="button" class="p-about__view-btn c-btn__view" onclick="location.href='#'">VIEW MORE</button>
+                    <p class="p-about__text">良い豆を、適切な温度で、丁寧に淹れる。<br>
+                        OG cafeが大切にしているのは、<br>
+                        そんな当たり前の中にある本質です。<br><br>
+                        余計なものは加えず、<br>
+                        コーヒーが持つ本来の輝きだけを<br>
+                        抽出しました。<br><br>
+                        凛とした静寂の中で、深く、濃い一杯を<br>
+                        お楽しみください。</p>
+                    <button type="button" class="p-about__view-btn c-btn__view" onclick="location.href='#'">view more</button>
                 </div>
             </div>
         </section>
@@ -91,36 +108,39 @@
             </h2>
 
             <div class="p-commitment__content">
+                <img class="p-commitment__img" src="./img/photo/beans.jpg" alt="珈琲豆の写真">
                 <div class="p-commitment__body">
+                    <p class="p-commitment__tag">select</p>
                     <h3 class="p-commitment__subtitle">
                         <span class="p-commitment__subtitle-num">こだわりその１、</span>
-                        <span class="p-commitment__subtitle-text">厳選した珈琲豆であること。</span>
+                        <span class="p-commitment__subtitle-text">厳選した豆であること。</span>
                     </h3>
-                    <p class="p-commitment__text">こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。こだわりその１の説明文が入ります。</p>
+                    <p class="p-commitment__text">世界中の農園から、その年、その時期に最も状態の良い珈琲豆のみを厳選して仕入れています。単一農園の個性を愉しむシングルオリジンから、計算し尽くされたバランスのブレンドまで。豆が持つ本来のポテンシャルを信じ、妥協のない選別を行っています。</p>
                 </div>
-                <img class="p-commitment__img" src="./img/" alt="店内風景の写真">
             </div>
 
             <div class="p-commitment__content">
+                <img class="p-commitment__img" src="./img/photo/roasting.jpg" alt="焙煎の様子の写真">
                 <div class="p-commitment__body">
+                    <p class="p-commitment__tag">roast</p>
                     <h3 class="p-commitment__subtitle">
                         <span class="p-commitment__subtitle-num">こだわりその２、</span>
                         <span class="p-commitment__subtitle-text">最適な焙煎をすること。</span>
                     </h3>
-                    <p class="p-commitment__text">こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。こだわりその２の説明文が入ります。</p>
+                    <p class="p-commitment__text">コーヒーの味を左右する焙煎。OG cafeでは店内のロースターを使用し、その日の気温や湿度に合わせて火力を微調整しながら、毎日少量ずつ小規模焙煎を行っています。浅煎りの華やかな酸味から、深煎りの芳醇な苦味まで。一番美味しい飲み頃の状態でお客様にお届けします。</p>
                 </div>
-                <img class="p-commitment__img" src="./img/" alt="焙煎の様子の写真">
             </div>
 
             <div class="p-commitment__content">
+                <img class="p-commitment__img" src="./img/photo/latte-art.jpg" alt="ラテアートの写真">
                 <div class="p-commitment__body">
+                    <p class="p-commitment__tag">brew</p>
                     <h3 class="p-commitment__subtitle">
                         <span class="p-commitment__subtitle-num">こだわりその３、</span>
-                        <span class="p-commitment__subtitle-text">新鮮であること。</span>
+                        <span class="p-commitment__subtitle-text">最高を追求すること。</span>
                     </h3>
-                    <p class="p-commitment__text">こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。こだわりその３の説明文が入ります。</p>
+                    <p class="p-commitment__text">その日の豆の状態、挽き具合に合わせて、熟練のスタッフが一杯ずつ丁寧にハンドドリップで抽出します。お湯の温度、注ぐスピード、蒸らしの時間。すべての工程に論理的な根拠を持ち、お客様のカップに注がれる最後の一滴まで、最高の一杯を追求し続けています。</p>
                 </div>
-                <img class="p-commitment__img" src="./img/" alt="ラテアートの写真">
             </div>
         </section>
 
@@ -133,7 +153,7 @@
             <ul class="p-category__list">
                 <li class="p-category__item">
                     <a class="p-category__link" href="#">
-                        <img class="p-category__img" src="./img/" alt="コーヒー一覧へ移動">
+                        <img class="p-category__img" src="./img/photo/category-coffee.jpg" alt="コーヒー一覧へ移動">
                         <p class="p-category__name">
                             <span class="p-category__name-en">brew coffee</span>
                             <span class="p-category__name-jp">コーヒー</span>
@@ -142,7 +162,7 @@
                 </li>
                 <li class="p-category__item">
                     <a class="p-category__link" href="#">
-                        <img class="p-category__img" src="./img/" alt="エスプレッソ一覧へ移動">
+                        <img class="p-category__img" src="./img/photo/category-coffee.jpg" alt="エスプレッソ一覧へ移動">
                         <p class="p-category__name">
                             <span class="p-category__name-en">espresso</span>
                             <span class="p-category__name-jp">エスプレッソ</span>
@@ -151,7 +171,7 @@
                 </li>
                 <li class="p-category__item">
                     <a class="p-category__link" href="#">
-                        <img class="p-category__img" src="./img/" alt="フラペチーノ一覧へ移動">
+                        <img class="p-category__img" src="./img/photo/category-coffee.jpg" alt="フラペチーノ一覧へ移動">
                         <p class="p-category__name">
                             <span class="p-category__name-en">frappuccino</span>
                             <span class="p-category__name-jp">フラペチーノ</span>
@@ -160,7 +180,7 @@
                 </li>
                 <li class="p-category__item">
                     <a class="p-category__link" href="#">
-                        <img class="p-category__img" src="./img/" alt="ティー一覧へ移動">
+                        <img class="p-category__img" src="./img/photo/category-coffee.jpg" alt="ティー一覧へ移動">
                         <p class="p-category__name">
                             <span class="p-category__name-en">tea</span>
                             <span class="p-category__name-jp">ティー</span>
@@ -169,7 +189,7 @@
                 </li>
                 <li class="p-category__item">
                     <a class="p-category__link" href="#">
-                        <img class="p-category__img" src="./img/" alt="フード一覧へ移動">
+                        <img class="p-category__img" src="./img/photo/category-food.jpg" alt="フード一覧へ移動">
                         <p class="p-category__name">
                             <span class="p-category__name-en">food</span>
                             <span class="p-category__name-jp">フード</span>
@@ -178,7 +198,7 @@
                 </li>
                 <li class="p-category__item">
                     <a class="p-category__link" href="#">
-                        <img class="p-category__img" src="./img/" alt="コーヒー豆一覧へ移動">
+                        <img class="p-category__img" src="./img/photo/category-beans.jpg" alt="コーヒー豆一覧へ移動">
                         <p class="p-category__name">
                             <span class="p-category__name-en">coffee beans</span>
                             <span class="p-category__name-jp">コーヒー豆</span>
@@ -186,23 +206,26 @@
                     </a>
                 </li>
             </ul>
+            <button type="button" class="p-about__view-btn c-btn__view" onclick="location.href='#'">view more</button>
         </section>
+
+        <button type="button" class="l-pagetop">∧</button>
     </main>
 
     <footer class="l-footer">
         <p class="l-footer__logo">
             <a class="l-footer__logo-link" href="./index.html">OG cafe</a>
         </p>
-        <ul class="l-footer__list">
-            <li class="l-footer__item"><a class="l-footer__link" href="#">プライバシーポリシー</a></li>
-            <li class="l-footer__item"><a class="l-footer__link" href="#">特定商法取引に基づく表記</a></li>
-        </ul>
-        <small class="l-footer__copy-wrapper">
-            <span class="l-footer__copyright">&copy; 2026 OG cafe</span>
-            <a class="l-footer__github-link" href="https://github.com/KosukeHagino/og-cafe" target="_blank">GitHub</a>
-        </small>
-    </footer>
-
-    <button type="button" class="l-pagetop">∧top</button>
+        <div class="l-footer__wrapper">
+            <ul class="l-footer__list">
+                <li class="l-footer__item"><a class="l-footer__link" href="#">プライバシーポリシー</a></li>
+                <li class="l-footer__item"><a class="l-footer__link" href="#">特定商法取引に基づく表記</a></li>
+            </ul>        
+            <small class="l-footer__copy-wrapper">
+                <span class="l-footer__copyright">&copy; 2026 OG cafe</span>
+                <a class="l-footer__github-link" href="https://github.com/KosukeHagino/og-cafe" target="_blank">GitHub</a>
+            </small>
+        </div>
+    </footer>   
 </body>
 </html>
