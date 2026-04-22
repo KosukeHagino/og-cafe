@@ -242,27 +242,27 @@ span {
 }
 
 .p-fv__img--1 {
-    background-image: url(../img/photo/coffee.jpg);
+    background-image: url(../img/photo/coffee-sp.webp);
     animation-delay: 0s;
 }
 
 .p-fv__img--2 {
-    background-image: url(../img/photo/cafe.jpg);
+    background-image: url(../img/photo/cafe-sp.webp);
     animation-delay: 5s;
 }
 
 .p-fv__img--3 {
-    background-image: url(../img/photo/beans.jpg);
+    background-image: url(../img/photo/beans-sp.webp);
     animation-delay: 10s;
 }
 
 .p-fv__img--4 {
-    background-image: url(../img/photo/roasting.jpg);
+    background-image: url(../img/photo/roast-sp.webp);
     animation-delay: 15s;
 }
 
 .p-fv__img--5 {
-    background-image: url(../img/photo/latte-art.jpg);
+    background-image: url(../img/photo/brew-sp.webp);
     animation-delay: 20s;
 }
 
@@ -278,7 +278,7 @@ span {
     letter-spacing: 0.5em;
     line-height: 1;
     writing-mode: vertical-rl;
-    padding: var(--spc-s) var(--spc-xs) 0 var(--spc-xs);
+    padding: var(--spc-s) var(--spc-2xs) 0;
     background-color: rgba(250, 255, 255, 90%);
 }
 
