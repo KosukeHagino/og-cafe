@@ -233,11 +233,11 @@ span {
     position: absolute;
     inset: 0;
     inline-size: 100%;
-    block-size: 100vh;
+    block-size: 100dvh;
     opacity: 0;
     background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    background-position: center;
+    image-rendering: -webkit-optimize-contrast;         /* 画像がボケないように設定 */
     animation: img-switch-anim 25s infinite;
 }
 
