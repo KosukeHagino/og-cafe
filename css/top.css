@@ -4,17 +4,6 @@
    Variable
 **************************************************/
 :root {
-    /* --- Z-index --- */
-    --z-header          : 4000;         /* ヘッダー */
-    --z-header-menu-btn : 200;          /* ヘッダー内メニューボタン */
-    --z-header-nav      : 100;          /* ヘッダー内ナビ */
-    --z-mask            : 3000;         /* メニュー開時の背景マスク */
-    --z-pagetop         : 2000;         /* ページトップに戻るボタン */
-    --z-footer          : 1000;         /* フッター */
-    --z-main            : 1;            /* メイン */
-    --z-front-content   : 2;            /* メイン内の前面に表示するコンテンツ */
-    --z-back-content    : -1;           /* メイン内の背面に表示するコンテンツ */
-
     /* --- Colors --- */
     --clr-bg-page : #E0E0E0;        /* Gray  : 背景 */
     --clr-bg-text : #faffff;        /* White : 写真上の文字背景 */
@@ -94,7 +83,7 @@ span {
 .c-btn__view {
     display: block;
     inline-size: 240px;
-    height: 50px;
+    block-size: 50px;
     margin-inline: auto;
     letter-spacing: 0.5em;
     text-transform: uppercase;
@@ -110,20 +99,27 @@ span {
     position: fixed;
     inset-inline: 0;
     inset-block-start: 0;
-    block-size: 80px;
+    block-size: 90px;
     z-index: var(--z-header);
     background-color: rgba(224, 224, 224, 90%);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
 }
 
 .l-header__logo {
     margin-inline-start: var(--spc-m);
+    line-height: 1px;
 }
 
 .l-header__logo-link {
+    
+}
 
+.l-header__logo-img {
+    block-size: 50px;
+    vertical-align: bottom;
 }
 
 .l-header__order {
@@ -188,11 +184,27 @@ span {
 }
 
 .l-header__nav {
-    display: none;      /* 一旦非表示。あとで変更する */
+    position: absolute;
+    inset-block-start: 90px;
+    inline-size: 100%;
+    block-size: calc(100dvh - 90px);
+    padding: var(--spc-l);
+    background-color: rgba(224, 224, 224, 95%);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s;
+}
+
+.is-active.l-header__nav {
+    opacity: 1;
+    visibility: visible;
 }
 
 .l-header__nav-list {
-
+    
 }
 
 .l-header__nav-item {
@@ -200,7 +212,17 @@ span {
 }
 
 .l-header__nav-link {
+    padding: var(--spc-s);
+    font-family: var(--fnt-accent);
+    font-size: 2.0rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    filter: blur(10px);
+    transition: filter 0.3s ease;
+}
 
+.is-active .l-header__nav-link {
+    filter: blur(0);
 }
 
 
@@ -475,19 +497,23 @@ span {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    block-size: 160px;
-    padding: var(--spc-m);
+    block-size: 280px;
+    padding: var(--spc-l);
     background-color: var(--clr-text);
     color: var(--clr-bg-text);
 }
 
 .l-footer__logo {
-    
+
 }
 
 .l-footer__logo-link {
-    font-size: 2.0rem;
-    font-weight: 700;
+
+}
+
+.l-footer__logo-img {
+    block-size: 80px;
+    vertical-align: bottom;
 }
 
 .l-footer__wrapper {
