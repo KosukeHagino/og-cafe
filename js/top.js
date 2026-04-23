@@ -11,10 +11,23 @@ $(function() {
 
 
     /**************************************************
-        [機能] ページトップに戻るボタン
+        [機能] スクロールに応じて表示（ページトップに戻るボタン）
     **************************************************/
-    $('#js-pagetop').on('click', function() {
-        $('html, body').animate({ scrollTop: 0 }, 600);     // 0.6秒かけて戻る
+    const $pagetop = $('#js-pagetop');
+    let isVisible = false; // 無駄な処理をさせないための旗（フラグ）
+
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 600) {
+            if (!isVisible) {
+                $pagetop.addClass('is-show');
+                isVisible = true;
+            }
+        } else {
+            if (isVisible) {
+                $pagetop.removeClass('is-show');
+                isVisible = false;
+            }
+        }
     });
 
 
@@ -35,45 +48,43 @@ $(function() {
         isProcessing = true;
 
         const $target = $(scrollQueue.shift());
+        $target.addClass('is-show');
         
-        // 判定：もし処理が回ってきた時点で、すでに画面の上端を通り過ぎていたら
-        // アニメーション（setTimeout）を待たずに即表示して、次の処理へ
-        const targetTop = $target.offset().top;
-        const windowBottom = $(window).scrollTop() + $(window).height();
-
-        if (targetTop < $(window).scrollTop()) {
-            $target.addClass('is-show');
-            processQueue(); // 待たずに次へ
-        } else {
-            $target.addClass('is-show');
-            setTimeout(processQueue, 300); // 画面内ならリズム良く出す
-        }
+        // 100ms待ってから、次の描画タイミングで次の要素を処理
+        setTimeout(() => {
+            requestAnimationFrame(processQueue);
+        }, 100);
     };
 
     const observer = new IntersectionObserver((entries) => {
-        $.each(entries, function(i, entry) {
+        // 今すぐ出すべきものとキューに入れるものを分ける
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
                 observer.unobserve(entry.target);
                 
-                // 【重要】画面の下から入ってきたか、一気にスクロールして上から入ったか判定
-                // 画面の下側（rootMarginの内側）から入った場合のみキューに入れる
-                const rect = entry.boundingClientRect;
-                if (rect.top < 0) {
-                    // すでに画面より上にある場合は、待たずに即表示
+                // 画面の上半分より上にあるものは、キューに入れず即座に表示
+                if (entry.boundingClientRect.top < window.innerHeight * 0.5) {
                     $(entry.target).addClass('is-show');
                 } else {
                     scrollQueue.push(entry.target);
-                    if (!isProcessing) processQueue();
                 }
             }
         });
+
+        // キューに何か入っていて、処理中でなければ開始
+        if (scrollQueue.length > 0 && !isProcessing) {
+            processQueue();
+        }
     }, {
         rootMargin: '0px 0px -10% 0px',
         threshold: 0
     });
 
-    $targets.each(function() {
-        observer.observe(this);
-    });
+    // 監視開始を少しだけ遅らせる（ブラウザの初期負荷を逃がす）
+    setTimeout(() => {
+        $targets.each(function() {
+            observer.observe(this);
+        });
+    }, 100);
 
 });

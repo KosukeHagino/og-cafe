@@ -90,6 +90,7 @@ span {
     text-transform: uppercase;
     color: var(--clr-bg-text);
     background-color: var(--clr-text);
+    border: 1px solid var(--clr-text);
 }
 
 
@@ -106,13 +107,13 @@ span {
 
 
 /* --- Scroll animation --- */
-/* - 上から下にフェードイン  - */
+/* - 上から下にフェードイン - */
 .u-scroll--down {
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-30px);
+    transform: translateY(-50px);
     transition:
-        opacity 0.5s ease,
+        opacity 0.5s ease-out,
         transform 0.5s ease-out,
         visibility 0.5s;
 }
@@ -123,13 +124,13 @@ span {
     transform: translateY(0);
 }
 
-/* - 下から上にフェードイン  - */
+/* - 下から上にフェードイン - */
 .u-scroll--up {
     opacity: 0;
     visibility: hidden;
-    transform: translateY(30px);
+    transform: translateY(50px);
     transition:
-        opacity 0.5s ease,
+        opacity 0.5s ease-out,
         transform 0.5s ease-out,
         visibility 0.5s;
 }
@@ -140,13 +141,13 @@ span {
     transform: translateY(0);
 }
 
-/* - 左から右にフェードイン  - */
+/* - 左から右にフェードイン - */
 .u-scroll--right {
     opacity: 0;
     visibility: hidden;
     transform: translateX(-50%);
     transition:
-        opacity 0.8s ease,
+        opacity 0.8s ease-out,
         transform 0.8s ease-out,
         visibility 0.8s;
 }
@@ -157,13 +158,13 @@ span {
     transform: translateX(0);
 }
 
-/* - 右から左にフェードイン  - */
+/* - 右から左にフェードイン - */
 .u-scroll--left {
     opacity: 0;
     visibility: hidden;
     transform: translateX(50%);
     transition:
-        opacity 0.8s ease,
+        opacity 0.8s ease-out,
         transform 0.8s ease-out,
         visibility 0.8s;
 }
@@ -172,6 +173,63 @@ span {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
+}
+
+/* - 拡大しながらフェードイン - */
+.u-scroll--scale-up {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition:
+        opacity 0.5s ease-out,
+        transform 0.5s ease-out,
+        visibility 0.5s;
+}
+
+.u-scroll--scale-up.is-show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* --- Hover animation --- */
+@media screen and (min-width: 1024px) {
+
+    /* - 色を薄くする - */
+    .u-hover--opacity:hover {
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+    }
+
+    /* - ボタンの色を変更する - */
+    .u-hover--color:hover {
+        background-color: var(--clr-bg-text);
+        color: var(--clr-text);
+        transition: all 0.3s ease;
+    }
+
+    /* - 画像は色を薄くしながら拡大、画像の説明文は下線を引く - */
+    .u-hover--img:hover img  {
+        transform: scale(1.1);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+    }
+
+    .u-hover--img:hover p  {
+        border-block-end: 1px solid var(--clr-text);
+    }
+
+    /* - 下線を引く - */
+    .u-hover--line:hover {
+        text-decoration: underline;
+    }
+
+    /* - 少し上にずらす - */
+    .u-hover--up:hover {
+        margin-block-end: var(--spc-xs);
+        transition: all 0.3s ease;
+    }
 }
 
 
@@ -186,7 +244,6 @@ span {
     25%  { opacity: 0; }
     100% { opacity: 0; }
 }
-
 
 /* --- Scroll bar --- */
 @keyframes scroll-bar {
@@ -530,21 +587,6 @@ span {
     margin-block-end: var(--spc-xl);
 }
 
-.l-pagetop {
-    position: absolute;
-    inset-inline-end: var(--spc-m);
-    inset-block-end: var(--spc-m);
-    inline-size: 60px;
-    block-size: 60px;
-    border-radius: 50%;
-    border: 1px solid var(--clr-text);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--clr-bg-text);
-    color: var(--clr-text);
-}
-
 
 /**************************************************
    Footer
@@ -579,6 +621,38 @@ span {
     align-items: flex-end;
     flex-direction: column;
     font-size: 1.2rem;
+}
+
+
+/**************************************************
+   Pagetop button
+**************************************************/
+.l-pagetop {
+    position: fixed;
+    inset-inline-end: var(--spc-m);
+    inset-block-end: var(--spc-2xl);
+    inline-size: 60px;
+    block-size: 60px;
+    border-radius: 50%;
+    border: 1px solid var(--clr-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-bg-text);
+    color: var(--clr-text);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    transition:
+        opacity 0.5s ease-out,
+        visibility 0.5s,
+        transform 0.5s ease-out;
+}
+
+.l-pagetop.is-show {
+    opacity: 0.8;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 
@@ -716,11 +790,6 @@ span {
         padding-inline: var(--spc-xl);
     }
 
-    .l-pagetop {
-        inset-inline-end: var(--spc-xl);
-        inset-block-end: var(--spc-l);
-    }
-
     .l-footer {
         block-size: 280px;
         padding: var(--spc-l);
@@ -728,6 +797,10 @@ span {
 
     .l-footer__logo-img {
         block-size: 100px;
+    }
+
+    .l-pagetop {
+        inset-inline-end: var(--spc-l);
     }
 }
 
@@ -913,11 +986,6 @@ span {
         
     }
 
-    .l-pagetop {
-        inset-inline-end: var(--spc-xl);
-        inset-block-end: var(--spc-l);
-    }
-
     .l-footer {
         block-size: 280px;
         padding: var(--spc-l);
@@ -925,6 +993,10 @@ span {
 
     .l-footer__logo-img {
         block-size: 100px;
+    }
+
+    .l-pagetop {
+        inset-inline-end: var(--spc-l);
     }
 }
 
